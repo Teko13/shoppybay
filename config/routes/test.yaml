@@ -1,5 +1,5 @@
-test:
-    path: /test/{age<\d+>?0}
-    controller: App\Controller\TestController::test
-    methods: [POST, GET]
-    schemes: [http, https]
+# test:
+#     path: /test/{age<\d+>?0}
+#     controller: App\Controller\TestController::test
+#     methods: [POST, GET]
+#     schemes: [http, https]
