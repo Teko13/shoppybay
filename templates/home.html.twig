@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	home
+{% endblock %}
+{% block body %}
+	<h1>Nos produits phares</h1>
+	<div class="row">
+		{% for i in 1..4 %}
+			<div class="col">
+				<div class="card">
+					<img src="https://picsum.photos/200/200" class="img-fluid" alt="image produit">
+					<div class="card-body">
+						<h4 class="card-title">Nom produits</h4>
+						<p class="card-text">
+							Lorem ipsum dolor sit amet.
+						</p>
+						<a href="#" class="btn btn-primary btn-sm">Details</a>
+						<a href="#" class="btn btn-success btn-sm">Ajouter au panier</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<hr>
+	<h2>Service irreprochable</h2>
+	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+	<div class="row">
+		{% include "shared/_assurance.html.twig" with {
+            color : 'primary',
+            icon : 'fa-solid fa-truck-fast',
+            text : "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        } %}
+		{% include "shared/_assurance.html.twig" with {
+            color : 'success',
+            icon : 'fa-solid fa-check',
+            text : "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        } %}
+		{% include "shared/_assurance.html.twig" with {
+            color : 'warning',
+            icon : 'fa-solid fa-shield-halved',
+            text : "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        } %}
+	</div>
+{% endblock %}

@@ -2,28 +2,25 @@
 
 namespace App\Controller;
 
-use App\Taxes\Calculator;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HelloController
+class HelloController extends AbstractController
 {
-    protected $tva;
-
-    public function __construct(Calculator $calcul_tva)
-    {
-        $this->tva = $calcul_tva;
-    }
     /**
      * @Route("/hello/{name<[a-z]+>?word}", host="localhost", name="hello")
      */
 
-    public function hello(Request $request, $name)
+    public function hello($name)
     {
-        $prix = $this->tva->calcul(100);
-        dump($prix);
-        return new Response("Hello $name");
+        return $this->render('hello.html.twig', ["prenom" => $name]);
+    }
+
+    /**
+     * @Route("/exemple", name="example")
+     */
+    public function exemple()
+    {
+        return $this->render('exemple.html.twig', ["age" => 33]);
     }
 }
